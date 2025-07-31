@@ -76,7 +76,6 @@ app.post('/api/enroll', async (req, res) => {
     }
 });
 
-
 const subscriberSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true }
 });
@@ -108,9 +107,6 @@ app.post('/api/subscribe', async (req, res) => {
     res.status(500).json({ message: 'Something went wrong' });
   }
 });
-
-
-
 // Start server
 const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => {
