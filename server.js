@@ -5,11 +5,11 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express();
+app.use(express.static('public'));
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.use(express.static('public'));
 
 console.log('MONGODB_URI:', process.env.MONGODB_URI);
 // Connect to MongoDB
