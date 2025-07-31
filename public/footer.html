@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+     .footer-form input[type="email"] {
+      border-radius: 1.6rem 0 0 1.6rem;
+      border: none;
+      height: 44px;
+    }
+    .footer-form button {
+      border-radius: 0 1.6rem 1.6rem 0;
+      background: rgb(7, 71, 233) ;
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      padding: 0 22px;
+    }
+     .footer-form button:hover{
+      background-color: #25D366 ;
+     }
+    .footer-form input[type="email"]:focus, .footer-form button:focus {
+      box-shadow: 0 0 0 0.2rem #00b89450;
+      outline: none;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 2rem;
+      padding: 8px 26px;
+      margin: 15px 0 6px 0;
+      transition: background 0.16s;
+    }
+    .whatsapp-btn:hover {
+      background: #19b954;
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-links a {
+      color: #eee;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover {
+      color: #00b894;
+      text-decoration: underline;
+    }
+    .footer-section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: .5px;
+    }
+    .footer-main {
+      background: #003d78;
+      color: #fff;
+      border-radius: 2rem 2rem 0 0;
+      padding: 40px 0 10px 0;
+      margin-top: 55px;
+    }
+    .footer-address {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .copyright {
+      text-align: center;
+      font-size: .97rem;
+      color: #ddd;
+      margin-top: 16px;
+      padding-bottom: 10px;
+      letter-spacing: .8px;
+    }
+    @media (max-width: 992px) {
+      .slider-track img {
+        height: 38px;
+        margin: 0 16px;
+      }
+      .section-title { font-size: 1.5rem;}
+      .hero-section h1 { font-size: 2.1rem;}
+    }
+    @media (max-width: 600px) {
+      .footer-main { border-radius: 1.1rem 1.1rem 0 0; }
+      .company-slider { border-radius: 0.8rem; }
+      .hero-section { padding: 35px 0 25px 0;}
+      .course-card { margin-bottom: 18px;}
+      .careers-card { min-height: 150px; padding: 16px 8px;}
+    }
+  
+</style>
+</head>
+<body>
+  <footer class="footer-main" style="position:sticky;">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <div class="footer-section-title">Subscribe to Newsletter</div>
+        <form class="footer-form d-flex" id="newsletter-form">
+          <input type="email" class="form-control me-1" id="newsletter-email" placeholder="Enter your email" required>
+          <button type="submit" class="btn"><i class="bi bi-send"></i></button>
+        </form>
+        <div id="newsletter-message" class="small mt-2"></div>
+        <a href="https://chat.whatsapp.com/DM6osgTS7GZ0gzSAGt1ZxT" target="_blank" class="whatsapp-btn d-inline-block mt-3"><i class="bi bi-whatsapp"></i> Join our WhatsApp Channel</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-section-title">Get In Touch</div>
+        <div class="footer-address">
+          <i class="bi bi-person-square"></i>&nbsp;<b>Ananth Murundi</b>&nbsp;<b>[Director]</b><br>
+          <i class="bi bi-geo-alt-fill"></i>&nbsp;Clinomic Center for Clinical Research Pvt. Ltd.
+          Office No #1480, 6th Main Road, Kalikamba Temple, Street Kengeri.Satellite town. Bengaluru-560060  <br>
+          <i class="bi bi-envelope-at-fill"></i> clinomin.kar@gmail.com <br/>
+          <i class="bi bi-telephone"></i> +91-9004624956
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-section-title">Quick Links</div>
+        <ul class="footer-links">
+          
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright mt-4">
+      &copy; 2024 clinomicresearchinstitute. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+</body>
+</html>

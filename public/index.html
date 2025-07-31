@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clinomic Karnataka | Clinical Courses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f6f8fa;
+    }
+    .hero-section {
+      background: linear-gradient(rgba(0,61,120,0.85),rgba(0,61,120,0.85)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 0 60px 0;
+      border-radius: 0 0 2rem 2rem;
+      box-shadow: 0 10px 40px 0 rgba(0,0,0,0.08);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.13);
+    }
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+    .hero-section p {
+      font-size: 1.3rem;
+      margin-bottom: 32px;
+    }
+    .feature-list i {
+      font-size: 2rem;
+      color: #00b894;
+      margin-right: 14px;
+      vertical-align: middle;
+    }
+    .feature-list li {
+      font-size: 1.13rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Section title design*/
+    .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0066cc;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.1s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  margin: 16px auto 0 auto;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg,#00b894 20%,#0066cc 100%);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0.3);
+  animation: underlineGrow 1s .8s cubic-bezier(.55,.05,.58,.96) forwards;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineGrow {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Course card design*/
+   .highlight-course-card {
+    border: none;
+    border-radius: 2rem;
+    background: linear-gradient(135deg, #e3f9fc 0%, #f5e4fc 100%);
+    transition: transform 0.25s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(0,61,120,0.06);
+    overflow: hidden;
+    position: relative;
+  }
+  .highlight-course-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 16px 36px rgba(0,61,120,0.13);
+    background: linear-gradient(135deg, #f5e4fc 0%, #e3f9fc 100%);
+  }
+  .course-icon-circle {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg,#00b894 40%,#339af0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+    box-shadow: 0 2px 12px rgba(0,185,148,0.09);
+    margin-bottom: 18px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .highlight-course-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0066cc;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .btn-main {
+    background: #00b894;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 2rem;
+    box-shadow: 0 2px 10px rgba(0,185,148,0.1);
+    transition: background 0.18s;
+  }
+  .btn-main:hover {
+    background: #00997a;
+    color: #fff;
+  }
+
+  /*Mission,Vision and Goal Design*/
+  .info-section {
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .info-container {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+    .image-overlap-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 40px 0;
+  }
+
+  .image-overlap-container img {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .img-primary {
+    width: 100%;
+  }
+
+  .img-secondary {
+    position: absolute;
+    width: 60%;
+    bottom: -20px;
+    right: -20px;
+    border: 4px solid white;
+  }
+
+  .image-overlap-container:hover .img-secondary {
+    transform: scale(1.05);
+    z-index: 2;
+  }
+
+  @media (max-width: 576px) {
+    .img-secondary {
+      width: 70%;
+      bottom: -10px;
+      right: -10px;
+    }
+  }
+
+
+  .info-content {
+    flex: 1 1 50%;
+    padding: 30px;
+    background: #ffffff;
+  }
+
+  .info-buttons .btn {
+    margin-bottom: 10px;
+    width: 100%;
+    font-weight: 600;
+    border-radius: 25px;
+    border: 2px solid #0d6efd;
+    color: #0d6efd;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .info-buttons .btn:hover,
+  .info-buttons .btn.active {
+    background-color: #0d6efd;
+    color: #fff;
+  }
+
+  .info-points {
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+
+  .info-points li {
+    margin-bottom: 10px;
+  }
+
+  .guidance-btn {
+    margin-top: 25px;
+    background-color: #0dbf82;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 600;
+  }
+
+  #info-box {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .info-image,
+    .info-content {
+      flex: 1 1 100%;
+    }
+  }
+
+
+  /* Careers card design*/
+    .careers-card {
+  background: linear-gradient(135deg, #092753 0%, #144389 100%);
+  border: none;
+  border-radius: 1.4rem;
+  box-shadow: 0 4px 22px rgba(0,61,120,0.11);
+  color: #fff;
+  transition: transform 0.18s, box-shadow 0.18s;
+  padding: 1.4rem 1rem 1rem 1rem;
+  position: relative;
+  min-height: 390px;
+}
+.careers-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(0,61,120,0.21);
+}
+.career-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 12px auto;
+  background: linear-gradient(135deg,#00b894 20%,#2176ae 100%);
+  border-radius: 50%;
+  font-size: 2.7rem;
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,185,148,0.09);
+}
+.careers-card h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #6fd1c4;
+  margin-bottom: 10px;
+  margin-top: 2px;
+  letter-spacing: 1px;
+}
+.careers-card ul {
+  list-style-type: disc;
+  font-weight: 500;
+  text-align: left;
+  color: #e9f6fc;
+  padding-left: 18px;
+  margin-top: 18px;
+  font-size: 0.97rem;
+}
+.careers-card ul li {
+  margin-bottom: 7px;
+}
+@media (max-width: 991px) {
+  .careers-card { min-height: unset; margin-bottom: 18px;}
+}
+
+/* Company slider design*/
+    .company-slider {
+      overflow: hidden;
+      background: #fff;
+      padding: 25px 0;
+      border-radius: 1.3rem;
+      box-shadow: 0 2px 8px rgba(0,61,120,0.06);
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .slider-track {
+      display: flex;
+      width: 1400px;
+      animation: slideLeft 18s linear infinite;
+      align-items: center;
+    }
+    .slider-track img {
+      height: 55px;
+      margin: 0 36px;
+      /*filter: grayscale(100%);*/
+      transition: filter 0.2s;
+    }
+    
+    @keyframes slideLeft {
+      0% { transform: translateX(0);}
+      100% { transform: translateX(-55%);}
+    }
+    .footer-form input[type="email"] {
+      border-radius: 1.6rem 0 0 1.6rem;
+      border: none;
+      height: 44px;
+    }
+    .footer-form button {
+      border-radius: 0 1.6rem 1.6rem 0;
+      background: #00b894;
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      padding: 0 22px;
+    }
+    .footer-form input[type="email"]:focus, .footer-form button:focus {
+      box-shadow: 0 0 0 0.2rem #00b89450;
+      outline: none;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 2rem;
+      padding: 8px 26px;
+      margin: 15px 0 6px 0;
+      transition: background 0.16s;
+    }
+    .whatsapp-btn:hover {
+      background: #19b954;
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-links a {
+      color: #eee;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover {
+      color: #00b894;
+      text-decoration: underline;
+    }
+    .footer-section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: .5px;
+    }
+    .footer-main {
+      background: #003d78;
+      color: #fff;
+      border-radius: 2rem 2rem 0 0;
+      padding: 40px 0 10px 0;
+      margin-top: 55px;
+    }
+    .footer-address {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .copyright {
+      text-align: center;
+      font-size: .97rem;
+      color: #ddd;
+      margin-top: 16px;
+      padding-bottom: 10px;
+      letter-spacing: .8px;
+    }
+    @media (max-width: 992px) {
+      .slider-track img {
+        height: 38px;
+        margin: 0 16px;
+      }
+      .section-title { font-size: 1.5rem;}
+      .hero-section h1 { font-size: 2.1rem;}
+    }
+    @media (max-width: 600px) {
+      .footer-main { border-radius: 1.1rem 1.1rem 0 0; }
+      .company-slider { border-radius: 0.8rem; }
+      .hero-section { padding: 35px 0 25px 0;}
+      .course-card { margin-bottom: 18px;}
+      .careers-card { min-height: 150px; padding: 16px 8px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div style="
+  background: #185a9d;
+  padding: 0.55rem 0;
+  height: 30px;
+  margin: 20px 0;">
+  <marquee behavior="scroll" direction="left" scrollamount="5" style="font-size:15px; font-weight:bolder; color:#fff; letter-spacing:1px;">
+    Thane &nbsp; | &nbsp; Borivali &nbsp; | &nbsp; Pune &nbsp; | &nbsp; Nagpur &nbsp; | &nbsp; Nasik &nbsp; | &nbsp; Jalgaon &nbsp; | &nbsp; Ahmedabad &nbsp; | &nbsp; Surat &nbsp; | &nbsp; Indore &nbsp; | &nbsp; Hyderabad &nbsp; | &nbsp; Kochi &nbsp; | &nbsp; Thiruvananthapuram &nbsp; | &nbsp; Malappuram &nbsp; | &nbsp; Bengaluru
+  </marquee>
+</div>
+
+  <!-- HEADER  -->
+  <div id="header-include" ></div>
+ 
+<!-- HERO SECTION -->
+<section class="hero-section text-center">
+  <div class="container">
+    <h1>Build Your Clinical Career<br>with <span style="color:#05bc97;">Clinomic Karnataka</span></h1>
+    <p>Advance your future with globally recognized clinical research and healthcare courses, placement support, and expert mentors.</p>
+    
+    <!-- Animated Search Bar -->
+    <form id="course-search-form" class="mx-auto search-bar" style="max-width: 450px;">
+  <div class="input-group">
+    <input 
+      class="form-control border-0" 
+      type="search" 
+      placeholder="Search clinical courses..." 
+      aria-label="Search" 
+      style="background:white; border-top-left-radius: 25px; border-bottom-left-radius: 25px;">
+    <button 
+      class="btn" 
+      type="submit" 
+      style="background-color: #00b894; color: black; border-top-right-radius: 25px; border-bottom-right-radius: 25px;">
+      <i class="bi bi-search"></i><i>Search</i> 
+    </button>
+  </div>
+</form>
+
+
+    
+    <div id="search-results"></div>
+    <div class="mt-4">
+      <a class="btn btn-main btn-lg rounded-pill px-4 me-2" href="enroll.html" style="background-color: #00b894; font-weight: bolder;"><i class="bi bi-person-plus"></i> Enroll Now</a>
+      </div>
+  </div>
+</section>
+
+<!-- KEY FEATURES SECTION -->
+<div class="container py-4">
+  <div class="row g-3 justify-content-center">
+    <div class="col-12 col-md-2">
+      <div class="card h-100 text-center shadow-sm" style="background:linear-gradient(135deg,#d2fcfc 0,#c8e6fa 100%); border:0;">
+        <div class="card-body">
+          <i class="bi bi-person-check-fill mb-2" style="font-size:2rem; color:#00b894;"></i>
+          <div class="fw-bold">100% Placement Assistance</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-2">
+      <div class="card h-100 text-center shadow-sm" style="background:linear-gradient(135deg,#fdf6e3 0,#fde2e4 100%); border:0;">
+        <div class="card-body">
+          <i class="bi bi-chat-square-dots-fill mb-2" style="font-size:2rem; color:#f59e42;"></i>
+          <div class="fw-bold">Interview Skill Development</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-2">
+      <div class="card h-100 text-center shadow-sm" style="background:linear-gradient(135deg,#e9f7ef 0,#b0f2c2 100%); border:0;">
+        <div class="card-body">
+          <i class="bi bi-award-fill mb-2" style="font-size:2rem; color:#339af0;"></i>
+          <div class="fw-bold">Practical Internship Programs</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-2">
+      <div class="card h-100 text-center shadow-sm" style="background:linear-gradient(135deg,#f8dff9 0,#f1b8ea 100%); border:0;">
+        <div class="card-body">
+          <i class="bi bi-trophy-fill mb-2" style="font-size:2rem; color:#f0932b;"></i>
+          <div class="fw-bold">Awards &amp; ISO Certification</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-2">
+      <div class="card h-100 text-center shadow-sm" style="background:linear-gradient(135deg,#e0eaff 0,#b2bec3 100%); border:0;">
+        <div class="card-body">
+          <i class="bi bi-people-fill mb-2" style="font-size:2rem; color:#003d78;"></i>
+          <div class="fw-bold">Experienced Teaching Staff</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-2">
+      <div class="card h-100 text-center shadow-sm" style="background:linear-gradient(135deg,#fffde4 0,#f2f7fa 100%); border:0;">
+        <div class="card-body">
+          <i class="bi bi-laptop-fill mb-2" style="font-size:2rem; color:#6c63ff;"></i>
+          <div class="fw-bold">E-Teaching Methodology</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED COURSES -->
+<div class="container py-4">
+  <div class="section-title">Explore Featured Courses</div>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card highlight-course-card mb-4 p-4 text-center">
+        <div class="course-icon-circle mb-2">
+          <i class="bi bi-mortarboard"></i>
+        </div>
+        <div class="highlight-course-title">Executive Diploma in Clinical Research Management</div>
+        <p class="card-text">Comprehensive program for future leaders in clinical research management. Designed for graduates and working professionals.</p>
+        <a href="courses.html" class="btn btn-main btn-lg rounded-pill mt-2 px-4" style="background-color: #00997a;color: white; font-weight: bolder;">Know More</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card highlight-course-card mb-4 p-4 text-center">
+        <div class="course-icon-circle mb-2" style="background:linear-gradient(135deg,#6c63ff 40%,#a0e7e5 100%);">
+          <i class="bi bi-journal-medical"></i>
+        </div>
+        <div class="highlight-course-title">Advance Diploma in Clinical Research</div>
+        <p class="card-text">Advance your expertise in clinical research practices, drug development and global regulatory environments.</p>
+        <a href="courses.html" class="btn btn-main btn-lg rounded-pill mt-2 px-4" style="background-color: #00997a; color: white; font-weight: bolder;">Know More</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card highlight-course-card mb-4 p-4 text-center">
+        <div class="course-icon-circle mb-2" style="background:linear-gradient(135deg,#ff6b6b 40%,#f8e1e1 100%);">
+          <i class="bi bi-award"></i>
+        </div>
+        <div class="highlight-course-title">Post Graduate Diploma in Clinical Research</div>
+        <p class="card-text">Ideal for science graduates aiming for a rewarding career in clinical research, pharmacovigilance and allied fields.</p>
+        <a href="courses.html" class="btn btn-main btn-lg rounded-pill mt-2 px-4" style="background-color: #00997a; color: white; font-weight: bolder;">Know More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION VISION AND GOAL-->
+<section class="info-section">
+  <div class="container">
+    <div class="info-container">
+      <!-- Left: Image -->
+     <div class="image-overlap-container">
+  <!-- First Image (base) -->
+  <img src="https://www.clinomic.in/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-11-at-4.44.17-PM.jpeg" alt="Main Image" class="img-primary">
+
+  <!-- Overlapping Image -->
+  <img src="https://static.innovativemedicine.jnj.com/dims4/default/8a75de6/2147483647/strip/true/crop/3840x3840+960+0/resize/500x500!/quality/90/?url=https%3A%2F%2Fjnj-production-im.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fe2%2Ff7%2F6293870f4070a966bfc41f845399%2Fjj-photo-female-doctor-examining-petri-dish-gettyimages-961012574-4star.jpg" alt="Overlay Image" class="img-secondary">
+</div>
+  
+      <!-- Right: Content -->
+      
+      <div class="info-content">
+        <div class="info-buttons mb-3">
+           <div class="section-title" style="text-align: left;">Empowering Future Healthcare Professionals <br>through Expert-Led Training and Placement</div>
+          <button class="btn btn-secondary" onclick="switchInfo('mission', this)" style="background-color: #00997a; border: none; font-weight: bolder; color: white; width: max-content;">
+            <i class="fas fa-bullseye"></i> Our Mission
+          </button>
+          <button class="btn btn-secondary" onclick="switchInfo('vision', this)" style="background-color: #00997a; border: none; font-weight: bolder; color: white; width: max-content;">
+            <i class="fas fa-eye"></i> Our Vision
+          </button>
+          <button class="btn btn-secondary" onclick="switchInfo('goal', this)" style="background-color: #00997a; border: none; font-weight: bolder; color: white; width: max-content;">
+            <i class="fas fa-flag"></i> Our Goal
+          </button>
+          <p style="color: #024e8c; font-weight: bold;">To uphold Quality, Speed, Value, and Integrity in everything we do. We aim to empower every<br>
+             student with robust knowledge and practical skills in clinical research, offering a strong platform<br>
+              to launch promising careers in the field.</p>
+        </div>
+
+       <div id="info-box">
+          <ul class="list-unstyled" id="info-points"></ul>
+          <button class="guidance-btn">
+            <i class="fas fa-hand-holding-heart"></i> Get Free Guidance
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER PATHS SECTION -->
+<div class="container py-4">
+  <div class="section-title">What Careers We Can Make?</div>
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="careers-card text-center h-100">
+        <div class="career-icon"><i class="fas fa-stethoscope"></i></div>
+        <h3>Clinical Operations</h3>
+        <ul>
+          <li>Clinical Research Associate</li>  
+          <li>Clinical Research Coordinator</li>
+          <li>Investigator</li>
+          <li>Sub Investigator</li>
+          <li>Study Coordinator</li>
+          <li>Co-Investigator</li>
+          <li>Bioavailability &amp; Bioequivalence Expert</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="careers-card text-center h-100">
+        <div class="career-icon"><i class="bi bi-capsule"></i></div>
+        <h3>Pharmacovigilance &amp; Drug Safety</h3>
+        <ul>
+          <li>Quality Assurance Pharmacovigilance</li>
+          <li>Pharmacovigilance Specialists</li>
+          <li>Drug Safety Associates</li>
+          <li>Pharmacovigilance Service Analyst</li>
+          <li>Safety Writer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="careers-card text-center h-100">
+        <div class="career-icon"><i class="bi bi-database-fill"></i></div>
+        <h3>Clinical Data Management</h3>
+        <ul>
+          <li>QA Executive</li>
+          <li>DATA Manager</li>
+          <li>Database Designer</li>
+          <li>Data Validation Executive</li>
+          <li>Database Statistician</li>
+          <li>QC Manager</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="careers-card text-center h-100">
+        <div class="career-icon"><i class="bi bi-file-earmark-medical"></i></div>
+        <h3>Medical / Regulatory Affairs</h3>
+        <ul>
+          <li>Medical Writer</li>
+          <li>Regulatory Writing</li>
+          <li>Associate Writer</li>
+          <li>Publishing Manager</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- COMPANY SLIDER SECTION -->
+<div class="container py-4">
+  <div class="section-title">OVER 100 LEADING COMPANIES RECRUIT FROM Clinomic CAMPUS</div>
+  <div class="company-slider">
+    <div class="slider-track">
+    <img src="https://brandeps.com/logo-download/T/TATA-Consultancy-Services-logo-vector-01.svg" width="100" alt="TCS" >
+      <img src="https://cdn.brandfetch.io/id6EIUtrKQ/w/1100/h/432/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1752480864465" alt="Vimta" width="100">
+      <img src="https://cdn.brandfetch.io/idz09i5N4H/w/722/h/547/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1747643305102" alt="Alkem" width="100">
+      <img src="https://cdn.brandfetch.io/idfxSP1ALV/w/359/h/359/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1737355202109" alt="Apollo" width="100">
+      <img src="https://cdn.brandfetch.io/idmWHzNpgs/w/500/h/319/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1745873389560" alt="Accutest" width="100">
+      <img src="https://cdn.brandfetch.io/idgnUHO4MS/w/304/h/130/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1745217163112" alt="Mascot Spincontrol" width="100">
+      <img src="https://cdn.brandfetch.io/panexcell.com/w/300/h/300/logo?c=1idwa0Fg2ovEzLPlmV8" alt="Panexcell" width="100">
+      <img src="https://cdn.brandfetch.io/vediclifesciences.com/w/512/h/308/logo?c=1idwa0Fg2ovEzLPlmV8" alt="vediclifesciences" width="100">
+      <img src="https://cdn.brandfetch.io/biosrl.com/w/161/h/55/logo?c=1idwa0Fg2ovEzLPlmV8" alt="biosrl" width="100">
+      <img src="https://cdn.brandfetch.io/iqvia.com/w/512/h/92/logo?c=1idwa0Fg2ovEzLPlmV8" alt="iqvia" width="100">
+      <img src="https://cdn.brandfetch.io/ril.com/w/512/h/465/logo?c=1idwa0Fg2ovEzLPlmV8" alt="ril" width="100">
+      <img src="https://cdn.brandfetch.io/omegahms.com/w/160/h/57/logo?c=1idwa0Fg2ovEzLPlmV8" alt="omegahms" width="100">
+      <img src="https://cdn.brandfetch.io/cognizant.com/w/512/h/154/theme/light/logo?c=1idwa0Fg2ovEzLPlmV8" alt="cognizant" width="100">
+      <img src="https://cdn.brandfetch.io/asianheartinstitute.org/w/434/h/156/logo?c=1idwa0Fg2ovEzLPlmV8" alt="asianheartinstitute" width="100">
+       <img src="https://brandeps.com/logo-download/T/TATA-Consultancy-Services-logo-vector-01.svg" width="100" alt="TCS" >
+      <img src="https://cdn.brandfetch.io/id6EIUtrKQ/w/1100/h/432/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1752480864465" alt="Vimta" width="100">
+      <img src="https://cdn.brandfetch.io/idz09i5N4H/w/722/h/547/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1747643305102" alt="Alkem" width="100">
+      <img src="https://cdn.brandfetch.io/idfxSP1ALV/w/359/h/359/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1737355202109" alt="Apollo" width="100">
+      <img src="https://cdn.brandfetch.io/idmWHzNpgs/w/500/h/319/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1745873389560" alt="Accutest" width="100">
+      <img src="https://cdn.brandfetch.io/idgnUHO4MS/w/304/h/130/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1745217163112" alt="Mascot Spincontrol" width="100">
+      <img src="https://cdn.brandfetch.io/panexcell.com/w/300/h/300/logo?c=1idwa0Fg2ovEzLPlmV8" alt="Panexcell" width="100">
+      <img src="https://cdn.brandfetch.io/vediclifesciences.com/w/512/h/308/logo?c=1idwa0Fg2ovEzLPlmV8" alt="vediclifesciences" width="100">
+      <img src="https://cdn.brandfetch.io/biosrl.com/w/161/h/55/logo?c=1idwa0Fg2ovEzLPlmV8" alt="biosrl" width="100">
+      <img src="https://cdn.brandfetch.io/iqvia.com/w/512/h/92/logo?c=1idwa0Fg2ovEzLPlmV8" alt="iqvia" width="100">
+      <img src="https://cdn.brandfetch.io/ril.com/w/512/h/465/logo?c=1idwa0Fg2ovEzLPlmV8" alt="ril" width="100">
+      <img src="https://cdn.brandfetch.io/omegahms.com/w/160/h/57/logo?c=1idwa0Fg2ovEzLPlmV8" alt="omegahms" width="100">
+      <img src="https://cdn.brandfetch.io/cognizant.com/w/512/h/154/theme/light/logo?c=1idwa0Fg2ovEzLPlmV8" alt="cognizant" width="100">
+      <img src="https://cdn.brandfetch.io/asianheartinstitute.org/w/434/h/156/logo?c=1idwa0Fg2ovEzLPlmV8" alt="asianheartinstitute" width="100">
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer-include"></div>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Header/Footer includes -->
+  <script>
+    fetch('header.html').then(res => res.text()).then(data => document.getElementById('header-include').innerHTML = data);
+  </script>
+
+  <!-- Our Mission,Vision and Goals goes here -->
+<script>
+  const infoData = {
+    mission: [
+      "To deliver industry-focused training programs.",
+      "Bridge the gap between academics and clinical practices.",
+      "Empower students to succeed in real-world healthcare roles."
+    ],
+    vision: [
+      "To become a globally trusted institute in clinical research education.",
+      "Inspire innovation, professionalism, and ethics.",
+      "Enhance the quality of life through informed health professionals."
+    ],
+    goal: [
+      "Equip students with hands-on clinical expertise.",
+      "Ensure 100% placement assistance.",
+      "Expand our learning platform globally."
+    ]
+  };
+
+   function switchInfo(type, btn) {
+    // Show the content container
+    document.getElementById('info-box').style.display = 'block';
+
+    // Update active button state
+    document.querySelectorAll('.info-buttons .btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Update the content
+    const list = document.getElementById('info-points');
+    list.innerHTML = '';
+    infoData[type].forEach((point, index) => {
+  const li = document.createElement('li');
+  li.className = 'd-flex align-items-start mb-2'; // Bootstrap flex
+  li.innerHTML = `
+    <span class="badge bg-secondary me-2" style="min-width: 30px; ">${index + 1}</span>
+    <span>${point}</span>
+  `;
+  list.appendChild(li);
+});
+  }
+</script>
+
+
+<script>
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-include').innerHTML = data;
+      if (typeof initNewsletterFormHandler === 'function') {
+        initNewsletterFormHandler();
+      }
+    });
+</script>
+<script src="newsletter.js"></script>
+
+
+</body>
+</html>

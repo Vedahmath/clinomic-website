@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clinomic | Courses </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <style>
+    body {
+      background: #f7fcfc;
+    }
+     .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0066cc;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.1s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  margin: 16px auto 0 auto;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg,#00b894 20%,#0066cc 100%);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0.3);
+  animation: underlineGrow 1s .8s cubic-bezier(.55,.05,.58,.96) forwards;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineGrow {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+   .course-card {
+   
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    min-height: 360px;
+    box-shadow: 0 6px 20px rgba(0, 61, 120, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .course-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .course-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .course-header h5 {
+    font-weight: 800;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .btn.start-btn {
+    background-color:  #021629;
+    color: #f2f8f8;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  
+
+  .row .col-md-4 {
+    display: flex;
+  }
+
+  .card.course-card {
+    width: 100%;
+    flex-direction: column;
+  }
+    .course-details {
+      display: none;
+      margin-top: 30px;
+      border-left: 5px solid #006666;
+      padding-left: 25px;
+      background-color: #f2f8f8;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .course-details h4 {
+      color: #002b5c;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .course-details ul {
+      list-style: none;
+      padding: 0;
+    }
+    .course-details ul li {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    .course-details ul li i {
+      color: #006666;
+      margin-right: 10px;
+      font-size: 18px;
+    }
+    .course-details ul li ul {
+      margin-top: 5px;
+      margin-left: 28px;
+    }
+    .course-details ul li ul li {
+      list-style-type: disc;
+      color: #333;
+    }
+    
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+
+  </style>
+</head>
+
+<body>
+      <div id="header-include"></div>
+    
+     <div class="container py-5">
+    <h2 class="section-title" style="animation: fadeInUp 1s ease forwards;">Our Courses</h2>
+   <div class="row g-4">
+  <div class="col-md-4">
+    <div class="card course-card text-center">
+      <img src="https://www.clinomic.in/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-11-at-3.34.17-PM.jpeg" alt="Advance Diploma" class="course-img" />
+      <div class="course-content">
+        <div class="course-header">
+          <h5>Advance Diploma In Clinical Research</h5>
+        </div>
+        <button class="btn start-btn" onclick="toggleDetails('adcr')" style="width: mix-content; align-self: center;">Start Learning</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card course-card text-center">
+      <img src="https://www.clinomic.in/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-11-at-3.34.18-PM-1.jpeg" alt="Post Graduate Diploma" class="course-img" />
+      <div class="course-content">
+        <div class="course-header">
+          <h5>Post Graduate Diploma in Clinical Research</h5>
+        </div>
+        <button class="btn start-btn" onclick="toggleDetails('pgdcr')" style="width: mix-content; align-self: center;">Start Learning</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card course-card text-center">
+      <img src="https://www.clinomic.in/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-11-at-3.34.18-PM.jpeg" alt="Executive Diploma" class="course-img" />
+      <div class="course-content">
+        <div class="course-header position-relative">
+          <h5>Executive Diploma in Clinical Research Management</h5>
+        </div>
+        <button class="btn start-btn" onclick="toggleDetails('edcrm')" style="width: mix-content; align-self: center;">Start Learning</button>
+      </div>
+    </div>
+  </div>
+</div>
+     <div id="adcr" class="course-details">
+  <h4><i class="fas fa-user-graduate"></i> Advance Diploma In Clinical Research</h4>
+  <ul>
+    <li><i class="fas fa-info-circle"></i> <strong>About:</strong> The Advance Diploma in Clinical Research is designed to equip students and professionals with in-depth knowledge of clinical trial protocols, ethics, data management, and regulatory frameworks. This program bridges academic learning with industry expectations, preparing participants for roles in clinical trial monitoring, coordination, and documentation.</li>
+    <li><i class="fas fa-hourglass-half"></i> <strong>Course Duration:</strong> 6 Months</li>
+    <li><i class="fas fa-briefcase"></i> <strong>Placement Support:</strong>
+      <ul>
+        <li>🎯 100% Placement Assistance in Clinical Research</li>
+        <li>Industry Connections and Job Fairs</li>
+        <li>Mentorship and Soft Skill Training</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-certificate"></i> <strong>Program Highlights:</strong>
+      <ul>
+        <li>In-depth training in clinical trial phases</li>
+        <li>Protocol design and regulatory compliance</li>
+        <li>Exposure to pharmacovigilance and biostatistics</li>
+        <li>Hands-on practice with data management systems</li>
+        <li>Modules aligned with ICH-GCP & global standards</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-chalkboard-teacher"></i> <strong>E-Teaching Methodology:</strong>
+      <ul>
+        <li>👩‍🏫 Live Faculty Sessions</li>
+        <li>📝 Assignments with CRF design and case studies</li>
+        <li>🧪 Interactive Workshops</li>
+        <li>📊 360° Evaluation and Feedback</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-user-check"></i> <strong>Eligibility Criteria:</strong>
+      <ul>
+        <li>B.PHARM, M.PHARM, MBBS, BDS, BHMS, BAMS</li>
+        <li>BSC NURSING, MSC in Chemistry, Botany, Zoology</li>
+        <li>Biotechnology, Microbiology, Biochemistry</li>
+        <li>Biostatistics, Bioinformatics</li>
+        <li>Final-year students</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-gift"></i> <strong>Bonus Career Module:</strong>
+      <ul>
+        <li>📝 Resume Writing</li>
+        <li>🎯 Interview Rounds</li>
+        <li>🚀 Career Planning Support</li>
+      </ul>
+    </li>
+  </ul>
+  <a href="enroll.html" class="btn btn-primary me-2" style="background-color: #00b894; font-weight: bolder; border: none;">Enroll Now</a>
+  <a href="https://www.clinomic.in/wp-content/uploads/2025/06/CLINOMIC-BROCHURE_ADCR.pdf" class="btn btn-primary me-2" style="border: none; width: max-content; background-color: #002b5c;">Download Brochure</a>
+</div>
+ <div id="pgdcr" class="course-details">
+  <h4><i class="fas fa-user-graduate"></i> Post Graduate Diploma in Clinical Research</h4>
+  <ul>
+    <li><i class="fas fa-info-circle"></i> <strong>About:</strong> Gain in-depth knowledge and hands-on skills in clinical trial design, ethics, regulatory affairs, pharmacovigilance, and data management. This industry-oriented program prepares graduates for high-demand careers in clinical research, pharmaceuticals, biotech, and healthcare.</li>
+    <li><i class="fas fa-hourglass-half"></i> <strong>Course Duration:</strong> 12 Months</li>
+    <li><i class="fas fa-briefcase"></i> <strong>Placement Support:</strong>
+      <ul>
+        <li>🎯 Internship Opportunity</li>
+        <li>Complementary Theoretical Training</li>
+        <li>On-the-job Mentoring</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-certificate"></i> <strong>Clinical Research Modules:</strong>
+      <ul>
+        <li>Clinical Research & Regulatory</li>
+        <li>Data Management</li>
+        <li>PG Diploma Specialization</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-chalkboard-teacher"></i> <strong>E-Teaching Methodology:</strong>
+      <ul>
+        <li>📚 Interactive Classroom Sessions</li>
+        <li>📝 Practical Assignments (CRFs, Protocols, Case Studies)</li>
+        <li>🛠 Simulations</li>
+        <li>📊 360° Evaluation</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-user-check"></i> <strong>Eligibility Criteria:</strong>
+      <ul>
+        <li>BSC in Life Science, Chemistry, Botany, Zoology</li>
+        <li>Biotechnology, Microbiology, Biochemistry</li>
+        <li>Biostatistics, Bioinformatics, BMLT</li>
+        <li>Final year students eligible</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-gift"></i> <strong>Bonus Career Model:</strong>
+      <ul>
+        <li>✍ Resume Preparation</li>
+        <li>💼 Interview Training</li>
+        <li>🚀 New Job Success Strategy</li>
+      </ul>
+    </li>
+  </ul>
+  <a href="enroll.html" class="btn btn-primary me-2" style="background-color: #00b894; font-weight: bolder; border: none;">Enroll Now</a>
+  <a href="https://www.clinomic.in/wp-content/uploads/2025/06/CLINOMIC-BROCHURE_PGDCR.pdf" class="btn btn-primary me-2" style="border: none; width: max-content; background-color: #002b5c;">Download Brochure</a>
+</div>
+<div id="edcrm" class="course-details">
+  <h4><i class="fas fa-user-graduate"></i> Executive Diploma in Clinical Research Management</h4>
+  <ul>
+    <li><i class="fas fa-info-circle"></i> <strong>About:</strong> This course is for professionals and graduates aiming to advance in the clinical research and pharmaceutical industry. It emphasizes regulatory, strategic, and operational expertise with real-world project exposure.</li>
+    <li><i class="fas fa-hourglass-half"></i> <strong>Course Duration:</strong> 6 Months</li>
+    <li><i class="fas fa-briefcase"></i> <strong>Placement Support:</strong>
+      <ul>
+        <li>🎯 100% Placement Assistance</li>
+        <li>Dedicated Career Counselling</li>
+        <li>Industry Referrals</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-certificate"></i> <strong>Program Highlights:</strong>
+      <ul>
+        <li>Site Management</li>
+        <li>Regulatory Affairs</li>
+        <li>Ethics in Clinical Research</li>
+        <li>Study Design Techniques</li>
+        <li>Clinical Trial Budgeting</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-chalkboard-teacher"></i> <strong>E-Teaching Methodology:</strong>
+      <ul>
+        <li>🎓 Live Sessions</li>
+        <li>🧾 Assignments & Projects</li>
+        <li>🧪 Simulations</li>
+        <li>📈 360° Evaluation</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-user-check"></i> <strong>Eligibility Criteria:</strong>
+      <ul>
+        <li>B.PHARM, M.PHARM, MBBS, BDS, BHMS, BAMS</li>
+        <li>BSC NURSING, BSC in Life Science, Chemistry, Botany, Zoology</li>
+        <li>Biotechnology, Microbiology, Biochemistry</li>
+        <li>BMLT, Biostatistics, Bioinformatics</li>
+        <li>Working Professionals in Related Field</li>
+      </ul>
+    </li>
+    <li><i class="fas fa-gift"></i> <strong>Bonus Career Module:</strong>
+      <ul>
+        <li>✍ Resume Building</li>
+        <li>💼 Interview Skills</li>
+        <li>🚀 First 90 Days Prep</li>
+      </ul>
+    </li>
+  </ul>
+  <a href="enroll.html" class="btn btn-primary me-2"  style="background-color: #00b894; font-weight: bolder; border: none;" >Enroll Now</a>
+  <a href="https://www.clinomic.in/wp-content/uploads/2025/06/CLINOMIC-BROCHURE_EDCRM.pdf" class="btn btn-primary me-2" style="border: none; width: max-content; background-color: #002b5c;">Download Brochure</a>
+</div>
+  </div>
+
+
+
+
+      <div id="footer-include"></div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Header/Footer includes -->
+  <script>
+    fetch('header.html').then(res => res.text()).then(data => document.getElementById('header-include').innerHTML = data);
+    fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer-include').innerHTML = data);
+  </script>
+
+  <script>
+    function toggleDetails(id) {
+      const allDetails = document.querySelectorAll('.course-details');
+      allDetails.forEach(detail => detail.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+  <!-- Your existing JS (search, newsletter, etc) goes here -->
+  <script>
+    // Dummy courses for demo search
+    const courses = [
+      { name: "Clinical Research" },
+      { name: "Pharmacovigilance" },
+      { name: "Medical Writing" },
+      { name: "Regulatory Affairs" },
+      { name: "Clinical Data Management" }
+    ];
+
+    document.getElementById('course-search-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = document.getElementById('course-search').value.toLowerCase();
+      const results = courses.filter(c => c.name.toLowerCase().includes(query));
+      let html = '<ul class="list-group mt-2">';
+      if(results.length){
+        results.forEach(course => {
+          html += `<li class="list-group-item">${course.name}</li>`;
+        });
+      } else {
+        html += `<li class="list-group-item">No courses found.</li>`;
+      }
+      html += '</ul>';
+      document.getElementById('search-results').innerHTML = html;
+    });
+
+    // Newsletter form backend connection
+    document.addEventListener('submit', async function(e) {
+      if(e.target && e.target.id === 'newsletter-form') {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value;
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        document.getElementById('newsletter-message').innerText = data.message;
+        document.getElementById('newsletter-form').reset();
+      }
+    });
+  </script>
+</body>
+</html>

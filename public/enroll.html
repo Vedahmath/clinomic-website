@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clinomic | Enroll Now</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+/* Card gradient border and floating effect */
+.enroll-card::before, .enroll-card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0.12;
+}
+.enroll-card::before {
+  width: 120px; height: 120px;
+  top: -40px; left: -40px;
+  /* Cyan to light cyan gradient */
+  background: linear-gradient(120deg, #1de9b6, #89f7fe);
+}
+.enroll-card::after {
+  width: 90px; height: 90px;
+  bottom: -30px; right: -30px;
+  /* Blue-cyan gradient */
+  background: linear-gradient(120deg, #00bcd4, #2193b0);
+}
+.enroll-card .card-body {
+  position: relative;
+  z-index: 1;
+}
+/* Gradient text heading */
+.gradient-text {
+  background: linear-gradient(90deg,#f6d365,#fda085,#43cea2,#185a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Input and select custom styles */
+.input-custom:focus, .form-select:focus {
+  outline: 2px solid #1de9b6;
+  outline-offset: 2px;
+}
+
+/* Label styling */
+.form-label {
+  font-weight: 500;
+  color: #05a07e;
+}
+
+/* Button gradient */
+.btn-gradient {
+  background: linear-gradient(90deg, #034745 0%, #9d95d4 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 12px #fda08566;
+}
+
+.btn-gradient:hover, .btn-gradient:focus {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  transform: translateY(-2px) scale(1.04);
+  color: #fff;
+}
+
+/* Responsive: stack first & last name fields on small screens */
+@media (max-width: 576px) {
+  .enroll-card {
+    padding: 1.2rem;
+  }
+  .row.g-3 > .col-md-6 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .gradient-text {
+    font-size: 1.45rem;
+  }
+}
+
+/* Subtle floating shapes in background (inside card) */
+.enroll-card::before, .enroll-card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0.10;
+}
+.enroll-card::before {
+  width: 120px; height: 120px;
+  top: -40px; left: -40px;
+  background: linear-gradient(120deg,#fda085,#f6d365);
+}
+.enroll-card::after {
+  width: 90px; height: 90px;
+  bottom: -30px; right: -30px;
+  background: linear-gradient(120deg,#43cea2,#185a9d);
+}
+.enroll-card .card-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Improve focus outline for accessibility */
+.input-custom:focus, .form-select:focus {
+  outline: 2px solid #43cea2;
+  outline-offset: 2px;
+}
+</style>
+
+
+</head>
+
+<body>
+      <div id="header-include"></div>
+
+      <!-- Enroll Now Card (Form only) -->
+<div class="container d-flex align-items-center justify-content-center my-5">
+  <div class="enroll-card card shadow-lg p-4 w-100" style="max-width: 700px; border-radius: 1.5rem;">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-4 gradient-text">
+        <i class="fas fa-user-graduate me-2"></i>Enroll Now
+      </h3>
+      <form autocomplete="off" id="enrollForm">
+        <!-- Row for First and Last Name -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="firstName" class="form-label"><i class="fas fa-user"></i> First Name</label>
+            <input type="text" class="form-control input-custom" name="firstName" placeholder="Enter your first name" required>
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label"><i class="fas fa-user"></i> Last Name</label>
+            <input type="text" class="form-control input-custom" name="lastName" placeholder="Enter your last name" required>
+          </div>
+        </div>
+        <!-- Phone Number -->
+        <div class="mb-3">
+          <label for="phone" class="form-label"><i class="fas fa-phone"></i> Phone Number</label>
+          <input type="tel" class="form-control input-custom" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <!-- Email ID -->
+        <div class="mb-3">
+          <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email ID</label>
+          <input type="email" class="form-control input-custom" name="email" placeholder="Enter your email id" required>
+        </div>
+        <!-- Applying For -->
+        <div class="mb-3">
+          <label for="course" class="form-label"><i class="fas fa-book-open"></i> Applying For</label>
+          <select class="form-select input-custom" name="course" required>
+            <option value="" selected disabled>Select course</option>
+            <option>Advance Diploma in Clinical Research Management</option>
+            <option>Post Graduate Diploma in Clinical Research Management</option>
+            <option>Executive Diploma in Clinical Research Management</option>
+          </select>
+        </div>
+        <!-- Message -->
+        <div class="mb-3">
+          <label for="message" class="form-label"><i class="fas fa-comment-dots"></i> Message</label>
+          <textarea class="form-control input-custom" name="message" rows="2" placeholder="Type your message..."></textarea>
+        </div>
+        <!-- How did you come to know about us -->
+        <div class="mb-3">
+          <label for="hearAbout" class="form-label"><i class="fas fa-question-circle"></i> How did you come to know about us?</label>
+          <select class="form-select input-custom" name="hearAbout" required>
+            <option value="" selected disabled>Select an option</option>
+            <option>WhatsApp</option>
+            <option>Instagram</option>
+            <option>LinkedIn</option>
+            <option>Google Search</option>
+            <option>Friend/Family</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <!-- Reference for Friends -->
+        <div class="mb-4">
+          <label for="refFriend" class="form-label"><i class="fas fa-gift"></i> Give reference of your friends & win a <span class="fw-bold text-success">Career in Clinical Research Booklet</span></label>
+          <textarea class="form-control input-custom" name="refFriend" rows="2" placeholder="Friends name, mobile number and email(if available)"></textarea>
+        </div>
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-gradient btn-lg rounded-pill shadow"><i class="fas fa-paper-plane"></i> Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+      <div id="footer-include"></div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Header/Footer includes -->
+  <script>
+    fetch('header.html').then(res => res.text()).then(data => document.getElementById('header-include').innerHTML = data);
+    fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer-include').innerHTML = data);
+  </script>
+  
+
+  <script>
+// Header include
+fetch('header.html')
+  .then(res => res.text())
+  .then(data => document.getElementById('header-include').innerHTML = data);
+
+// Footer include + Newsletter handler
+fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer-include').innerHTML = data;
+    // --- Newsletter form handler ---
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const emailInput = document.getElementById('newsletter-email');
+        const messageDiv = document.getElementById('newsletter-message');
+        const email = emailInput.value;
+
+        try {
+          const res = await fetch('http://localhost:5500/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+          const data = await res.json();
+          if (res.ok) {
+            messageDiv.textContent = data.message;
+            messageDiv.style.color = 'white';
+            emailInput.value = '';
+          } else {
+            messageDiv.textContent = data.message;
+            messageDiv.style.color = 'red';
+          }
+        } catch (err) {
+          messageDiv.textContent = 'Something went wrong. Please try again!';
+          messageDiv.style.color = 'red';
+        }
+      });
+    }
+    // --- End newsletter handler ---
+  });
+</script>
+
+<script>
+// EnrollNow form handler (kept unchanged)
+document.addEventListener('DOMContentLoaded', function() {
+  const enrollForm = document.getElementById('enrollForm');
+  if (enrollForm) {
+    enrollForm.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      // Collect data from the form
+      const formData = new FormData(this);
+      const data = {};
+      for (let [key, value] of formData.entries()) {
+        data[key] = value.trim();
+      }
+      // Send data to backend
+      try {
+        const response = await fetch('http://localhost:5500/api/enroll', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        if (result.success) {
+          alert('Enrollment successful!');
+          this.reset();
+        } else {
+          alert('Error: ' + (result.message || 'Submission failed'));
+        }
+      } catch (err) {
+        alert('Server error. Please try again.');
+      }
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>
+
