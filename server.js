@@ -113,4 +113,6 @@ app.post('/api/subscribe', async (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 5500;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
