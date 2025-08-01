@@ -11,7 +11,7 @@ function initNewsletterFormHandler() {
       const messageDiv = document.getElementById('newsletter-message');
       const email = emailInput.value;
       try {
-        const res = await fetch('http://localhost:5500/api/subscribe', {
+        const res = await fetch('/api/subscribe', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({ email })
