@@ -19,7 +19,7 @@ function initNewsletterFormHandler() {
         const data = await res.json();
         if (res.ok) {
           messageDiv.textContent = data.message;
-          messageDiv.style.color = 'green';
+          messageDiv.style.color = 'white';
           emailInput.value = '';
         } else {
           messageDiv.textContent = data.message;
