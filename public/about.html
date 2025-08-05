@@ -36,22 +36,223 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
+
+   <style>
+    body {
+      background: linear-gradient(135deg, #e8f0fe 0%, #f3e6ff 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      min-height: 100vh;
+      color: #2d2940;
+    }
+    .about-hero {
+      background: linear-gradient(90deg, #83a6d6 0%, #c2c3ed 100%);
+      color: white;
+      padding: 4rem 1.5rem 2rem 1.5rem;
+      border-radius: 2.5rem 2.5rem 0 0;
+      box-shadow: 0 6px 32px #08a06330;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .about-hero h1 {
+      font-weight: bold;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .about-hero p {
+      font-size: 1.3rem;
+      opacity: 0.96;
+    }
+    .about-main {
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 2px 18px #564fc825;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+
+ .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0066cc;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.1s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  margin: 16px auto 0 auto;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg,#00b894 20%,#0066cc 100%);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0.3);
+  animation: underlineGrow 1s .8s cubic-bezier(.55,.05,.58,.96) forwards;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineGrow {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+
+   .director-section {
+      background: linear-gradient(105deg, #91d5f6 0%, #f1fffa 100%);
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px #89f7fe44;
+      padding: 2rem 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .director-section:hover {
+      box-shadow: 0 8px 32px #04604f55;
+    }
+    .director-message {
+      font-style: italic;
+      font-size: 1.13rem;
+      color: #1c2225;
+      margin-bottom: 1.5rem;
+    }
+    .director-info {
+      font-weight: bold;
+      color: #798f29;
+      font-size: 1.07rem;
+    }
+    .pdf-btn {
+      background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      font-weight: 600;
+      padding: 0.7rem 2rem;
+      font-size: 1.1rem;
+      transition: background 0.2s, transform 0.13s;
+      box-shadow: 0 2px 12px #185a9d33;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .pdf-btn:hover, .pdf-btn:focus {
+      background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 6px 22px #43cea288;
+    }
+    @media (max-width: 600px) {
+      .about-hero { padding: 2rem 0.6rem 1rem 0.6rem; border-radius: 1.3rem 1.3rem 0 0; }
+      .about-main { padding: 1rem 0.6rem; border-radius: 1.3rem; }
+      .director-section { padding: 1rem 0.6rem; border-radius: 1rem; }
+    }
+  </style>
+
+
 </head>
 
 <body>
       <div id="header-include"></div>
     
 
-      <div id="footer-include"></div>
-</body>
+         <section class="about-hero">
+    <h1 class="section-title"><i class="fas fa-flask-vial"></i> About Clinomic Karnataka</h1>
+    <p>
+      We are dedicated to excellence in clinical research education and practice.  
+      <br>Empowering future professionals through advanced training and mentorship.
+    </p>
+  </section>
 
+  <main class="about-main">
+    <h2 class="section-title">Who We Are</h2>
+    <p>
+      <b>Clinomic Training Center for Clinical Research – Karnataka Branch</b> is at the forefront of clinical research education. Our mission is to bridge the gap between academic knowledge and industry practices by offering hands-on, industry-focused training, designed by experts.
+    </p>
+    <ul>
+      <li>100% placement assistance for our trainees</li>
+      <li>Comprehensive internship programs</li>
+      <li>Innovative teaching methodologies</li>
+      <li>Strong industry network & collaborations</li>
+    </ul>
+
+    <div class="director-section mt-5">
+      <h3>
+        <i class="fa-solid fa-user-tie"></i> Message from the Director
+      </h3>
+      <div class="director-message">
+        Investing in People, Advancing Clinical Excellence.<br><br>
+        In clinical research, the integrity and success of every trial depend on the knowledge and preparedness of the people behind it. That’s why this training center represents more than just infrastructure—it symbolizes our investment in people, in quality, and in the future of healthcare.
+        <br><br>
+        This center is where we build capability, instill a culture of ethics, and empower professionals to shape the future of clinical research.
+        <br><br>
+        Thank you to every individual involved in building, leading, and participating in this initiative. Your commitment is laying the foundation for safer studies, stronger science, and better patient outcomes.
+      </div>
+      <div class="director-info">
+        Dr Vaishnavi Kulkarni<br>
+        Director & CEO<br>
+        Clinomic Training Center for Clinical Research – Karnataka Branch
+      </div>
+      <a class="pdf-btn mt-3" href="docs/director-message.pdf" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Read Full Message (PDF)
+      </a>
+    </div>
+
+    <h2 class="mt-4">Vision & Mission</h2>
+    <ul>
+      <li>To deliver globally recognized, industry-relevant clinical research programs</li>
+      <li>To empower students with practical skills and real-world expertise</li>
+      <li>To uphold ethics, innovation, and excellence at every step</li>
+    </ul>
+  </main>
+
+
+
+
+      <div id="footer-include"></div>
+
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Header/Footer includes -->
+  <script>fetch('header.html').then(res => res.text()).then(data => document.getElementById('header-include').innerHTML = data);</script>
+
+
   <script>
-    fetch('header.html').then(res => res.text()).then(data => document.getElementById('header-include').innerHTML = data);
-    fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer-include').innerHTML = data);
-  </script>
-  <!-- Your existing JS (search, newsletter, etc) goes here -->
- 
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-include').innerHTML = data;
+      if (typeof initNewsletterFormHandler === 'function') {
+        initNewsletterFormHandler();
+      }
+    });
+</script>
+<script src="newsletter.js"></script>
 </body>
 </html>
