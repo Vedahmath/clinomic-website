@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clinomic | Placements</title>
+  <meta name="description" content="Clinomic Karnataka placements — career support, interview preparation, and success stories of students placed in top clinical research companies.">
+  <meta name="keywords" content="clinomic, clinomic karnataka, clinical research placements, Bengaluru, healthcare careers, placement assistance">
+
+  <meta property="og:title" content="Clinomic Karnataka - Student Placements" />
+  <meta property="og:description" content="Celebrate Clinomic Karnataka placement success stories and explore our career support for clinical research students." />
+  <meta property="og:url" content="https://www.clinomickar.com/placement" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cdn.brandfetch.io/clinomic.in/w/300/h/106/logo?c=1idwa0Fg2ovEzLPlmV8" />
+
+  <meta name="geo.region" content="IN-KA">
+  <meta name="geo.placename" content="Bengaluru, Karnataka, India">
+  <meta name="geo.position" content="12.9716;77.5946">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <meta name="robots" content="index, follow">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      background: #f7fcfc;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #2d2940;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0066cc;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 28px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1.1s cubic-bezier(.77,0,.18,1) forwards;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      margin: 16px auto 0 auto;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg,#00b894 20%,#0066cc 100%);
+      border-radius: 2px;
+      opacity: 0;
+      transform: scaleX(0.3);
+      animation: underlineGrow 1s .8s cubic-bezier(.55,.05,.58,.96) forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      60% { opacity: 1; transform: translateY(-8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes underlineGrow {
+      to { opacity: 1; transform: scaleX(1); }
+    }
+
+    .placement-hero {
+      background: linear-gradient(120deg, #003d78 0%, #0066cc 55%, #00b894 100%);
+      color: #fff;
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+      border-radius: 0 0 2rem 2rem;
+      box-shadow: 0 8px 28px rgba(0, 61, 120, 0.25);
+      margin-bottom: 2rem;
+    }
+
+    .placement-hero h1 {
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .placement-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.96;
+      line-height: 1.6;
+    }
+
+    .intro-text {
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      text-align: center;
+      color: #024e8c;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .highlight-card {
+      background: #fff;
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 61, 120, 0.12);
+      padding: 1.5rem 1rem;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 61, 120, 0.18);
+    }
+
+    .highlight-card i {
+      font-size: 2rem;
+      color: #00b894;
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight-card h5 {
+      font-weight: 700;
+      color: #003d78;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    .highlight-card p {
+      margin: 0;
+      color: #555;
+      font-size: 0.92rem;
+    }
+
+    .placement-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+
+    .placement-gallery img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      background: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: block;
+    }
+
+    .placement-gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      z-index: 5000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 30, 30, 0.95);
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+      animation: fadeIn 0.2s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-overlay img {
+      max-width: 95vw;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 4px 64px rgba(0, 0, 0, 0.7);
+      background: #fff;
+      animation: popIn 0.22s;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); }
+      to { transform: scale(1); }
+    }
+
+    /* Congrats popup */
+    .congrats-overlay {
+      display: none;
+      position: fixed;
+      z-index: 6000;
+      inset: 0;
+      background: rgba(0, 30, 60, 0.72);
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .congrats-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s;
+    }
+
+    .congrats-modal {
+      position: relative;
+      background: #fff;
+      border-radius: 18px;
+      max-width: 420px;
+      width: 100%;
+      max-height: 92vh;
+      overflow: auto;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+      animation: popIn 0.28s;
+      text-align: center;
+    }
+
+    .congrats-modal .congrats-header {
+      background: linear-gradient(120deg, #003d78, #0066cc);
+      color: #fff;
+      padding: 1rem 2.5rem 0.85rem;
+      border-radius: 18px 18px 0 0;
+    }
+
+    .congrats-modal .congrats-header .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #ffe08a;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .congrats-modal .congrats-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0.25rem 0 0;
+      text-transform: uppercase;
+    }
+
+    .congrats-modal img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 58vh;
+      object-fit: contain;
+      background: #f5f8fb;
+    }
+
+    .congrats-modal .congrats-body {
+      padding: 0.9rem 1.1rem 1.2rem;
+    }
+
+    .congrats-modal .student-name {
+      font-weight: 700;
+      color: #003d78;
+      font-size: 1.15rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .congrats-modal .student-meta {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .congrats-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    .congrats-close:hover {
+      opacity: 1;
+    }
+
+    .btn-congrats-close {
+      background: #00b894;
+      color: #fff;
+      border: none;
+      font-weight: 700;
+      border-radius: 2rem;
+      padding: 0.45rem 1.4rem;
+    }
+
+    .btn-congrats-close:hover {
+      background: #00997a;
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .placement-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .placement-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .placement-hero {
+        padding: 2.5rem 1rem 2rem;
+        border-radius: 0 0 1.25rem 1.25rem;
+      }
+
+      .congrats-modal {
+        max-width: 95vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header-include"></div>
+
+  <section class="placement-hero">
+    <h1>Placements</h1>
+    <p>Clinomic Karnataka provides dedicated placement assistance and career support so our students succeed in top clinical research and healthcare organizations.</p>
+  </section>
+
+  <div class="container">
+    <p class="intro-text">
+      From resume guidance and mock interviews to industry exposure and job referrals, our placement cell walks with every learner until they secure the right role.
+      Explore recent placement achievements from students who trained with Clinomic.
+    </p>
+
+    <h2 class="section-title">Placement Highlights</h2>
+    <div class="row g-3 mb-5 justify-content-center">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="highlight-card">
+          <i class="bi bi-briefcase-fill"></i>
+          <h5>Placement Assistance</h5>
+          <p>End-to-end support until you land your role</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="highlight-card">
+          <i class="bi bi-chat-dots-fill"></i>
+          <h5>Interview Preparation</h5>
+          <p>Mock interviews and soft-skill coaching</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="highlight-card">
+          <i class="bi bi-file-earmark-person-fill"></i>
+          <h5>Resume Guidance</h5>
+          <p>Industry-ready CV and profile building</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="highlight-card">
+          <i class="bi bi-building"></i>
+          <h5>Industry Exposure</h5>
+          <p>Connections with CROs and pharma leaders</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="highlight-card">
+          <i class="bi bi-compass-fill"></i>
+          <h5>Career Guidance</h5>
+          <p>Mentorship for long-term career growth</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Placement Gallery</h2>
+    <div id="placement-gallery" class="placement-gallery" aria-label="Student placement photographs"></div>
+  </div>
+
+  <!-- Image lightbox -->
+  <div id="gallery-lightbox" class="lightbox-overlay" role="dialog" aria-label="Enlarged placement image">
+    <img id="lightbox-img" src="" alt="Full placement image">
+  </div>
+
+  <!-- Random congratulations popup -->
+  <div id="congrats-overlay" class="congrats-overlay" role="dialog" aria-modal="true" aria-labelledby="congrats-title">
+    <div class="congrats-modal" onclick="event.stopPropagation()">
+      <button type="button" class="congrats-close" aria-label="Close congratulations popup" onclick="closeCongratsPopup()">&times;</button>
+      <div class="congrats-header">
+        <span class="script">Congratulations</span>
+        <h3 id="congrats-title">Placement Achievement</h3>
+      </div>
+      <img id="congrats-img" src="" alt="Placed student congratulations">
+      <div class="congrats-body">
+        <div class="student-name" id="congrats-name"></div>
+        <div class="student-meta" id="congrats-meta"></div>
+        <button type="button" class="btn btn-congrats-close" onclick="closeCongratsPopup()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-include"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('header.html').then(res => res.text()).then(data => document.getElementById('header-include').innerHTML = data);
+  </script>
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-include').innerHTML = data;
+        if (typeof initNewsletterFormHandler === 'function') {
+          initNewsletterFormHandler();
+        }
+      });
+  </script>
+  <script src="newsletter.js"></script>
+
+  <script>
+    const placementImages = [
+      { src: 'placement/athira-ks.png', alt: 'Athira K S placed at IQVIA as Lab Cent Project Coordinator', name: 'Athira K S', company: 'IQVIA', role: 'Lab Cent Project Coordinator' },
+      { src: 'placement/pranali-patil.png', alt: 'Pranali Patil placed at Cognizant as PE-Pharmacovigilance', name: 'Pranali Patil', company: 'Cognizant', role: 'PE-Pharmacovigilance' },
+      { src: 'placement/samiksha-nishane.png', alt: 'Samiksha Nishane placed at IQVIA as Document Specialist', name: 'Samiksha Nishane', company: 'IQVIA', role: 'Document Specialist' },
+      { src: 'placement/tonny-prinson.png', alt: 'Tonny Prinson placed at IQVIA as Operations Coordinator', name: 'Tonny Prinson', company: 'IQVIA', role: 'Operations Coordinator' },
+      { src: 'placement/aathira-krishnan-m.png', alt: 'Aathira Krishnan M placed at Cognizant as PE-Med Device Complaint Management', name: 'Aathira Krishnan M', company: 'Cognizant', role: 'PE-Med Device Complaint Mgmt' },
+      { src: 'placement/pragati-suryawanshi.png', alt: 'Pragati Rajendra Suryawanshi placed at Cognizant as PE-Pharmacovigilance', name: 'Pragati Rajendra Suryawanshi', company: 'Cognizant', role: 'PE-Pharmacovigilance' },
+      { src: 'placement/ishika-garai.png', alt: 'Ishika Garai placed at Cognizant in Kolkata', name: 'Ishika Garai', company: 'Cognizant', role: 'Placement in Kolkata' },
+      { src: 'placement/gousiya-khan.png', alt: 'Gousiya Shamim Khan placed at INCREDCR as Clinical Research Coordinator', name: 'Gousiya Shamim Khan', company: 'INCREDCR Clinical Research', role: 'Clinical Research Coordinator' },
+      { src: 'placement/ishita-tawde.png', alt: 'Ishita Sachin Tawde placed at Reliance Foundation as Patient Experience Executive', name: 'Ishita Sachin Tawde', company: 'Reliance Foundation', role: 'Patient Experience Executive' },
+      { src: 'placement/dilkhush-vishwakarma.png', alt: 'Dilkhush Vishwakarma placed at Spinos as Clinical Site CRC Execution', name: 'Dilkhush Vishwakarma', company: 'SPINOS Life Science', role: 'Clinical Site CRC Execution' },
+      { src: 'placement/sweety-tale.png', alt: 'Sweety Rahul Tale placed at IQVIA as Operations Coordinator', name: 'Sweety Rahul Tale', company: 'IQVIA', role: 'Operations Coordinator' },
+      { src: 'placement/yogesh-chandekar.png', alt: 'Yogesh H. Chandekar placed at Veeda Lifesciences as Senior Clinical Assistant', name: 'Yogesh H. Chandekar', company: 'Veeda Lifesciences', role: 'Senior Clinical Assistant' },
+      { src: 'placement/tanvi-patel.png', alt: 'Tanvi Patel placed at Bioaxion Innovations as Clinical Trial Assistant', name: 'Tanvi Patel', company: 'Bioaxion Innovations', role: 'Clinical Trial Assistant' },
+      { src: 'placement/vaishnavi-dhanorkar.png', alt: 'Vaishnavi G Dhanorkar placed at INCREDCR as Clinical Research Coordinator', name: 'Vaishnavi G Dhanorkar', company: 'INCREDCR Clinical Research', role: 'Clinical Research Coordinator' },
+      { src: 'placement/nikhil-nikumbh.png', alt: 'Nikhil Dinesh Nikumbh placed at Spinos as Clinical Site CRC Execution', name: 'Nikhil Dinesh Nikumbh', company: 'SPINOS Life Science', role: 'Clinical Site CRC Execution' }
+    ];
+
+    function shuffleArray(array) {
+      const copy = array.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = temp;
+      }
+      return copy;
+    }
+
+    function renderGallery() {
+      const gallery = document.getElementById('placement-gallery');
+      const shuffled = shuffleArray(placementImages);
+      gallery.innerHTML = '';
+      shuffled.forEach(item => {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.alt;
+        img.loading = 'lazy';
+        img.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openLightbox(item.src, item.alt);
+        });
+        gallery.appendChild(img);
+      });
+    }
+
+    function openLightbox(src, alt) {
+      const overlay = document.getElementById('gallery-lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      img.alt = alt || 'Full placement image';
+      overlay.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const overlay = document.getElementById('gallery-lightbox');
+      overlay.classList.remove('active');
+      document.getElementById('lightbox-img').src = '';
+    }
+
+    function openCongratsPopup() {
+      const pick = placementImages[Math.floor(Math.random() * placementImages.length)];
+      document.getElementById('congrats-img').src = pick.src;
+      document.getElementById('congrats-img').alt = pick.alt;
+      document.getElementById('congrats-name').textContent = pick.name;
+      document.getElementById('congrats-meta').textContent = pick.role + ' at ' + pick.company;
+      document.getElementById('congrats-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCongratsPopup() {
+      document.getElementById('congrats-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('gallery-lightbox').addEventListener('click', closeLightbox);
+    document.getElementById('congrats-overlay').addEventListener('click', closeCongratsPopup);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeCongratsPopup();
+      }
+    });
+
+    renderGallery();
+    // Show a random placed-student congratulations popup shortly after load
+    setTimeout(openCongratsPopup, 600);
+  </script>
+</body>
+</html>

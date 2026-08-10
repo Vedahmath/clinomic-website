@@ -2,9 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
+
+// Clean URL for placement page (before static so /placement is not treated as the image folder)
+app.get('/placement', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'placement.html'));
+});
+
 app.use(express.static('public'));
 app.use(cors());
 app.use(express.json());
