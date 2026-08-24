@@ -28,7 +28,7 @@
 
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
@@ -450,6 +450,144 @@
       .course-card { margin-bottom: 18px;}
       .careers-card { min-height: 150px; padding: 16px 8px;}
     }
+
+    /* Home-page placed student popup (same idea as clinomic.in) */
+    .congrats-overlay {
+      display: none;
+      position: fixed;
+      z-index: 6000;
+      inset: 0;
+      background: rgba(0, 30, 60, 0.72);
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .congrats-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .congrats-modal {
+      position: relative;
+      background: #fff;
+      border-radius: 18px;
+      max-width: 420px;
+      width: 100%;
+      max-height: 92vh;
+      overflow: visible;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+      animation: popIn 0.28s;
+      text-align: center;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .congrats-modal .congrats-header {
+      background: linear-gradient(120deg, #003d78, #0066cc);
+      color: #fff;
+      padding: 1rem 2.5rem 0.85rem;
+      border-radius: 18px 18px 0 0;
+    }
+
+    .congrats-modal .congrats-header .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #ffe08a;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .congrats-modal .congrats-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0.25rem 0 0;
+      text-transform: uppercase;
+    }
+
+    .congrats-modal img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 58vh;
+      object-fit: contain;
+      background: #f5f8fb;
+    }
+
+    .congrats-modal .congrats-body {
+      padding: 0.9rem 1.1rem 1.2rem;
+    }
+
+    .congrats-modal .student-name {
+      font-weight: 700;
+      color: #003d78;
+      font-size: 1.15rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .congrats-modal .student-meta {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .congrats-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #ff3b3b;
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .congrats-close:hover {
+      background: #e02626;
+    }
+
+    .btn-congrats-close {
+      background: #00b894;
+      color: #fff;
+      border: none;
+      font-weight: 700;
+      border-radius: 2rem;
+      padding: 0.45rem 1.4rem;
+    }
+
+    .btn-congrats-close:hover {
+      background: #00997a;
+      color: #fff;
+    }
+
+    canvas.confetti {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 100000;
+    }
+
+    @media (max-width: 600px) {
+      .congrats-modal {
+        max-width: 95vw;
+      }
+    }
   </style>
 </head>
 <body>
@@ -726,6 +864,24 @@
 <!-- FOOTER -->
 <div id="footer-include"></div>
 
+<!-- Random congratulations popup on every home visit -->
+<div id="congrats-overlay" class="congrats-overlay" role="dialog" aria-modal="true" aria-labelledby="congrats-title">
+  <div class="congrats-modal" onclick="event.stopPropagation()">
+    <button type="button" class="congrats-close" aria-label="Close congratulations popup" onclick="closeCongratsPopup()">&times;</button>
+    <div class="congrats-header">
+      <span class="script">Congratulations</span>
+      <h3 id="congrats-title">Placement Achievement</h3>
+    </div>
+    <img id="congrats-img" src="" alt="Placed student congratulations">
+    <div class="congrats-body">
+      <div class="student-name" id="congrats-name"></div>
+      <div class="student-meta" id="congrats-meta"></div>
+      <button type="button" class="btn btn-congrats-close" onclick="closeCongratsPopup()">Close</button>
+    </div>
+  </div>
+</div>
+<canvas class="confetti" id="confettiCanvas"></canvas>
+
 
 
 <!-- Bootstrap JS -->
@@ -790,6 +946,176 @@
     });
 </script>
 <script src="newsletter.js"></script>
+<script src="placement-students.js"></script>
+<script>
+  function closeCongratsPopup() {
+    const overlay = document.getElementById('congrats-overlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
+    document.body.style.overflow = '';
+    stopConfetti();
+  }
+
+  function openCongratsPopup() {
+    const students = window.PLACEMENT_STUDENTS;
+    if (!students || !students.length) {
+      return;
+    }
+
+    const pick = students[Math.floor(Math.random() * students.length)];
+    if (!pick) {
+      return;
+    }
+
+    const overlay = document.getElementById('congrats-overlay');
+    const img = document.getElementById('congrats-img');
+    const nameEl = document.getElementById('congrats-name');
+    const metaEl = document.getElementById('congrats-meta');
+    if (!overlay || !img || !nameEl || !metaEl) {
+      return;
+    }
+
+    img.src = pick.src || '';
+    img.alt = pick.alt || 'Placed student congratulations';
+    nameEl.textContent = pick.name || '';
+    metaEl.textContent = (pick.role && pick.company)
+      ? pick.role + ' at ' + pick.company
+      : (pick.company || pick.role || '');
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    startConfetti();
+  }
+
+  const overlayEl = document.getElementById('congrats-overlay');
+  if (overlayEl) {
+    overlayEl.addEventListener('click', closeCongratsPopup);
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeCongratsPopup();
+    }
+  });
+
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas ? canvas.getContext('2d') : null;
+  let strips = [];
+  let animationRunning = false;
+  let confettiStopTimer = null;
+  const confettiColors = ['#ff3b3b', '#ffd166', '#06d6a0', '#118ab2', '#8338ec', '#ff006e', '#fb5607', '#3a86ff'];
+
+  function resizeConfettiCanvas() {
+    if (!canvas || !ctx) {
+      return;
+    }
+    const dpr = window.devicePixelRatio || 1;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function createStrip(fromCenter) {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const centerX = width / 2;
+    const centerY = height / 3;
+    if (fromCenter) {
+      const burstAngle = Math.random() * Math.PI * 2;
+      const burstSpeed = Math.random() * 8 + 4;
+      return {
+        x: centerX,
+        y: centerY,
+        w: Math.random() * 6 + 5,
+        h: Math.random() * 16 + 10,
+        vx: Math.cos(burstAngle) * burstSpeed,
+        vy: Math.sin(burstAngle) * burstSpeed - 4,
+        angle: Math.random() * 360,
+        rotate: Math.random() * 10 - 5,
+        color: confettiColors[Math.floor(Math.random() * confettiColors.length)]
+      };
+    }
+    return {
+      x: Math.random() * width,
+      y: -30 - Math.random() * 80,
+      w: 6,
+      h: Math.random() * 18 + 12,
+      vx: Math.random() * 2 - 1,
+      vy: Math.random() * 3 + 3,
+      angle: Math.random() * 360,
+      rotate: Math.random() * 8 - 4,
+      color: confettiColors[Math.floor(Math.random() * confettiColors.length)]
+    };
+  }
+
+  function startConfetti() {
+    if (!canvas || !ctx) {
+      return;
+    }
+    resizeConfettiCanvas();
+    animationRunning = true;
+    strips = [];
+
+    for (let i = 0; i < 90; i++) {
+      strips.push(createStrip(false));
+    }
+    for (let i = 0; i < 50; i++) {
+      strips.push(createStrip(true));
+    }
+
+    if (confettiStopTimer) {
+      clearTimeout(confettiStopTimer);
+    }
+    requestAnimationFrame(drawStrips);
+
+    confettiStopTimer = setTimeout(function () {
+      stopConfetti();
+    }, 4000);
+  }
+
+  function stopConfetti() {
+    animationRunning = false;
+    if (confettiStopTimer) {
+      clearTimeout(confettiStopTimer);
+      confettiStopTimer = null;
+    }
+    if (ctx && canvas) {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+  }
+
+  function drawStrips() {
+    if (!animationRunning || !ctx || !canvas) {
+      return;
+    }
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    ctx.clearRect(0, 0, width, height);
+    strips.forEach(function (s) {
+      ctx.save();
+      ctx.translate(s.x, s.y);
+      ctx.rotate(s.angle * Math.PI / 180);
+      ctx.fillStyle = s.color;
+      ctx.fillRect(-s.w / 2, -s.h / 2, s.w, s.h);
+      ctx.restore();
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vy += 0.12;
+      s.angle += s.rotate;
+    });
+
+    requestAnimationFrame(drawStrips);
+  }
+
+  window.addEventListener('resize', resizeConfettiCanvas);
+  setTimeout(openCongratsPopup, 500);
+</script>
 
 
 </body>
