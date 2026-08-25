@@ -19,7 +19,7 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <meta name="robots" content="index, follow">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -205,117 +205,6 @@
       to { transform: scale(1); }
     }
 
-    /* Congrats popup */
-    .congrats-overlay {
-      display: none;
-      position: fixed;
-      z-index: 6000;
-      inset: 0;
-      background: rgba(0, 30, 60, 0.72);
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-    }
-
-    .congrats-overlay.active {
-      display: flex;
-      animation: fadeIn 0.25s;
-    }
-
-    .congrats-modal {
-      position: relative;
-      background: #fff;
-      border-radius: 18px;
-      max-width: 420px;
-      width: 100%;
-      max-height: 92vh;
-      overflow: auto;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
-      animation: popIn 0.28s;
-      text-align: center;
-    }
-
-    .congrats-modal .congrats-header {
-      background: linear-gradient(120deg, #003d78, #0066cc);
-      color: #fff;
-      padding: 1rem 2.5rem 0.85rem;
-      border-radius: 18px 18px 0 0;
-    }
-
-    .congrats-modal .congrats-header .script {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2rem;
-      color: #ffe08a;
-      line-height: 1.1;
-      display: block;
-    }
-
-    .congrats-modal .congrats-header h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin: 0.25rem 0 0;
-      text-transform: uppercase;
-    }
-
-    .congrats-modal img {
-      width: 100%;
-      height: auto;
-      display: block;
-      max-height: 58vh;
-      object-fit: contain;
-      background: #f5f8fb;
-    }
-
-    .congrats-modal .congrats-body {
-      padding: 0.9rem 1.1rem 1.2rem;
-    }
-
-    .congrats-modal .student-name {
-      font-weight: 700;
-      color: #003d78;
-      font-size: 1.15rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .congrats-modal .student-meta {
-      color: #555;
-      font-size: 0.9rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .congrats-close {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.6rem;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 2;
-      opacity: 0.9;
-    }
-
-    .congrats-close:hover {
-      opacity: 1;
-    }
-
-    .btn-congrats-close {
-      background: #00b894;
-      color: #fff;
-      border: none;
-      font-weight: 700;
-      border-radius: 2rem;
-      padding: 0.45rem 1.4rem;
-    }
-
-    .btn-congrats-close:hover {
-      background: #00997a;
-      color: #fff;
-    }
-
     @media (max-width: 900px) {
       .placement-gallery {
         grid-template-columns: repeat(2, 1fr);
@@ -331,10 +220,6 @@
       .placement-hero {
         padding: 2.5rem 1rem 2rem;
         border-radius: 0 0 1.25rem 1.25rem;
-      }
-
-      .congrats-modal {
-        max-width: 95vw;
       }
     }
   </style>
@@ -402,23 +287,6 @@
     <img id="lightbox-img" src="" alt="Full placement image">
   </div>
 
-  <!-- Random congratulations popup -->
-  <div id="congrats-overlay" class="congrats-overlay" role="dialog" aria-modal="true" aria-labelledby="congrats-title">
-    <div class="congrats-modal" onclick="event.stopPropagation()">
-      <button type="button" class="congrats-close" aria-label="Close congratulations popup" onclick="closeCongratsPopup()">&times;</button>
-      <div class="congrats-header">
-        <span class="script">Congratulations</span>
-        <h3 id="congrats-title">Placement Achievement</h3>
-      </div>
-      <img id="congrats-img" src="" alt="Placed student congratulations">
-      <div class="congrats-body">
-        <div class="student-name" id="congrats-name"></div>
-        <div class="student-meta" id="congrats-meta"></div>
-        <button type="button" class="btn btn-congrats-close" onclick="closeCongratsPopup()">Close</button>
-      </div>
-    </div>
-  </div>
-
   <div id="footer-include"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -436,25 +304,10 @@
       });
   </script>
   <script src="newsletter.js"></script>
+  <script src="placement-students.js"></script>
 
   <script>
-    const placementImages = [
-      { src: 'placement/athira-ks.png', alt: 'Athira K S placed at IQVIA as Lab Cent Project Coordinator', name: 'Athira K S', company: 'IQVIA', role: 'Lab Cent Project Coordinator' },
-      { src: 'placement/pranali-patil.png', alt: 'Pranali Patil placed at Cognizant as PE-Pharmacovigilance', name: 'Pranali Patil', company: 'Cognizant', role: 'PE-Pharmacovigilance' },
-      { src: 'placement/samiksha-nishane.png', alt: 'Samiksha Nishane placed at IQVIA as Document Specialist', name: 'Samiksha Nishane', company: 'IQVIA', role: 'Document Specialist' },
-      { src: 'placement/tonny-prinson.png', alt: 'Tonny Prinson placed at IQVIA as Operations Coordinator', name: 'Tonny Prinson', company: 'IQVIA', role: 'Operations Coordinator' },
-      { src: 'placement/aathira-krishnan-m.png', alt: 'Aathira Krishnan M placed at Cognizant as PE-Med Device Complaint Management', name: 'Aathira Krishnan M', company: 'Cognizant', role: 'PE-Med Device Complaint Mgmt' },
-      { src: 'placement/pragati-suryawanshi.png', alt: 'Pragati Rajendra Suryawanshi placed at Cognizant as PE-Pharmacovigilance', name: 'Pragati Rajendra Suryawanshi', company: 'Cognizant', role: 'PE-Pharmacovigilance' },
-      { src: 'placement/ishika-garai.png', alt: 'Ishika Garai placed at Cognizant in Kolkata', name: 'Ishika Garai', company: 'Cognizant', role: 'Placement in Kolkata' },
-      { src: 'placement/gousiya-khan.png', alt: 'Gousiya Shamim Khan placed at INCREDCR as Clinical Research Coordinator', name: 'Gousiya Shamim Khan', company: 'INCREDCR Clinical Research', role: 'Clinical Research Coordinator' },
-      { src: 'placement/ishita-tawde.png', alt: 'Ishita Sachin Tawde placed at Reliance Foundation as Patient Experience Executive', name: 'Ishita Sachin Tawde', company: 'Reliance Foundation', role: 'Patient Experience Executive' },
-      { src: 'placement/dilkhush-vishwakarma.png', alt: 'Dilkhush Vishwakarma placed at Spinos as Clinical Site CRC Execution', name: 'Dilkhush Vishwakarma', company: 'SPINOS Life Science', role: 'Clinical Site CRC Execution' },
-      { src: 'placement/sweety-tale.png', alt: 'Sweety Rahul Tale placed at IQVIA as Operations Coordinator', name: 'Sweety Rahul Tale', company: 'IQVIA', role: 'Operations Coordinator' },
-      { src: 'placement/yogesh-chandekar.png', alt: 'Yogesh H. Chandekar placed at Veeda Lifesciences as Senior Clinical Assistant', name: 'Yogesh H. Chandekar', company: 'Veeda Lifesciences', role: 'Senior Clinical Assistant' },
-      { src: 'placement/tanvi-patel.png', alt: 'Tanvi Patel placed at Bioaxion Innovations as Clinical Trial Assistant', name: 'Tanvi Patel', company: 'Bioaxion Innovations', role: 'Clinical Trial Assistant' },
-      { src: 'placement/vaishnavi-dhanorkar.png', alt: 'Vaishnavi G Dhanorkar placed at INCREDCR as Clinical Research Coordinator', name: 'Vaishnavi G Dhanorkar', company: 'INCREDCR Clinical Research', role: 'Clinical Research Coordinator' },
-      { src: 'placement/nikhil-nikumbh.png', alt: 'Nikhil Dinesh Nikumbh placed at Spinos as Clinical Site CRC Execution', name: 'Nikhil Dinesh Nikumbh', company: 'SPINOS Life Science', role: 'Clinical Site CRC Execution' }
-    ];
+    const placementImages = window.PLACEMENT_STUDENTS || [];
 
     function shuffleArray(array) {
       const copy = array.slice();
@@ -469,6 +322,9 @@
 
     function renderGallery() {
       const gallery = document.getElementById('placement-gallery');
+      if (!gallery || !placementImages.length) {
+        return;
+      }
       const shuffled = shuffleArray(placementImages);
       gallery.innerHTML = '';
       shuffled.forEach(item => {
@@ -487,6 +343,9 @@
     function openLightbox(src, alt) {
       const overlay = document.getElementById('gallery-lightbox');
       const img = document.getElementById('lightbox-img');
+      if (!overlay || !img) {
+        return;
+      }
       img.src = src;
       img.alt = alt || 'Full placement image';
       overlay.classList.add('active');
@@ -494,38 +353,28 @@
 
     function closeLightbox() {
       const overlay = document.getElementById('gallery-lightbox');
+      if (!overlay) {
+        return;
+      }
       overlay.classList.remove('active');
-      document.getElementById('lightbox-img').src = '';
+      const img = document.getElementById('lightbox-img');
+      if (img) {
+        img.src = '';
+      }
     }
 
-    function openCongratsPopup() {
-      const pick = placementImages[Math.floor(Math.random() * placementImages.length)];
-      document.getElementById('congrats-img').src = pick.src;
-      document.getElementById('congrats-img').alt = pick.alt;
-      document.getElementById('congrats-name').textContent = pick.name;
-      document.getElementById('congrats-meta').textContent = pick.role + ' at ' + pick.company;
-      document.getElementById('congrats-overlay').classList.add('active');
-      document.body.style.overflow = 'hidden';
+    const lightbox = document.getElementById('gallery-lightbox');
+    if (lightbox) {
+      lightbox.addEventListener('click', closeLightbox);
     }
-
-    function closeCongratsPopup() {
-      document.getElementById('congrats-overlay').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('gallery-lightbox').addEventListener('click', closeLightbox);
-    document.getElementById('congrats-overlay').addEventListener('click', closeCongratsPopup);
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         closeLightbox();
-        closeCongratsPopup();
       }
     });
 
     renderGallery();
-    // Show a random placed-student congratulations popup shortly after load
-    setTimeout(openCongratsPopup, 600);
   </script>
 </body>
 </html>
